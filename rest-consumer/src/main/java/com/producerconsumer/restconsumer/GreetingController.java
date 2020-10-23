@@ -8,6 +8,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class GreetingController {
 
+    @Autowired
+    private GreetingService greetingService;
+
+    @GetMapping("/get-greeting/{usernam}")
+    public String getGreeting(Model model, @PathVariable ("username") String username){
+        return greetingService.getGreeting(username);
+    }
 
 
 }
